@@ -1,0 +1,54 @@
+.main-info__finanzas {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* Cajas estilo cuadrado horizontal (mobile first) */
+.main-info__caja {
+  flex: 1 1 50%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: -24px -21px 0px 0px rgba(0, 0, 0, 0.1),
+              0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Títulos y montos */
+.main-info__caja-title {
+  font-size: 1rem;
+  color: var(--dark-color);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.main-info__caja-monto {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+/* En escritorio: cajas rectangulares y más separadas */
+@media (min-width: 768px) {
+  .main-info__finanzas {
+    gap: 2rem;
+  }
+
+  .main-info__caja {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 1.5rem;
+  }
+
+  .main-info__caja-title {
+    margin: 0;
+  }
+}
