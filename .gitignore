@@ -1,0 +1,59 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Editor y sistema
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Archivos temporales
+*.swp
+*.swo
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Configuraciones locales
+.env
+.env.local
+.env.*.local
+
+# Archivos de datos sensibles
+*.xlsx
+*.xls
+*.csv
+*.bak
+*.sqlite
+*.db
+Carpeta_info/
+
+
+# Uploads
+uploads/
+comprobantes/
+
+# GitHub Codespaces / DevContainers
+.devcontainer/
+
+# Output del backend (si aplica)
+__pycache__/
+*.pyc
+
+# Documentación generada
+*.pdf
+*.docx
+
+# Archivos generados por herramientas de diseño
+*.sketch
+*.psd
+*.ai

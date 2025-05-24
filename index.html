@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Perfil del Estudiante</title>
-  <link rel="stylesheet" href="CSS/styles.css">
-  <link rel="stylesheet" href="CSS/header.css">
-  <link rel="stylesheet" href="CSS/nav.css">
   <link rel="stylesheet" href="CSS/main.css">
-  <link rel="stylesheet" href="CSS/deducciones.css">
 </head>
 <body>
 
@@ -31,7 +27,6 @@
         </ul>
     </nav>
 
-
     <main class="main-info">
         <section class="main-info__perfil">
             <h2 class="main-info__perfil-title">Estudiante:</h2>
@@ -39,75 +34,53 @@
             <div class="main-info__perfil-paralelo">A</div>
         </section>
 
-        <section class="main-info__finanzas">
-            <div class="main-info__caja">
-            <h3 class="main-info__caja-title">Recaudado Total</h3>
-            <p class="main-info__caja-monto">432.88 <span>$</span></p>
+        <!-- <section id="info" display="none"></section> -->
+
+        <section class="resumen">
+            <div class="resumen__item resumen__item--ahorro" onclick="toggleDetalle('detalle-ahorro')">
+                <h3>Ahorro Total</h3>
+                <p>432.88 $</p>
             </div>
-            <div class="main-info__caja">
-            <h3 class="main-info__caja-title">Deuda</h3>
-            <p class="main-info__caja-monto">0 <span>$</span></p>
+            
+
+            <div class="resumen__item resumen__item--deuda" onclick="toggleDetalle('detalle-deuda')">
+                <h3>Deuda Total</h3>
+                <p>85.00 $</p>
+            </div>
+
+            <div id="detalle-ahorro" class="resumen__detalle hidden">
+                <p>Olimpiadas: 25 $</p>
+                <p>Nivel: 60 $</p>
+                <p>Voluntario: 0 $</p>
+            </div>
+
+            <div id="detalle-deuda" class="resumen__detalle hidden">
+                <p>Deuda Anterior: 0 $</p>
+                <p>1ro Bach:</p>
+                <ul>
+                <li>Olimpiadas: 25 $</li>
+                <li>Promo 67: 60 $</li>
+                <li>Graduación: 100 $</li>
+                </ul>
             </div>
         </section>
-    </main>
+    </main> 
 
-
-    <aside class="deducciones" id="deducciones">
-    <h2 class="deducciones__title">Deducciones</h2>
-
-    <div class="deducciones__caja">
-        <p class="deducciones__concepto">Olimpiadas</p>
-        <p class="deducciones__monto">25.00 <span>$</span></p>
-    </div>
-
-    <div class="deducciones__caja">
-        <p class="deducciones__concepto">Nivel</p>
-        <p class="deducciones__monto">60.00 <span>$</span></p>
-    </div>
-
-    <div class="deducciones__caja">
-        <p class="deducciones__concepto">Ahorro Voluntario</p>
-        <p class="deducciones__monto">0.00 <span>$</span></p>
-    </div>
-    </aside>
-
-
-    <section class="metas" id="metas">
-        <h2 class="metas__title">Metas de Ahorro</h2>
-        <h3 class="metas__paralelo">A</h3>
-
-        <div class="metas__item">
-        <h2 class="metas__item-title">Total Recaudado</h2>
-        <p class="metas__item-valor"><span>432</span>.88 <span>$</span></p>
-        </div>
-
-        <div class="metas__item">
-        <h2 class="metas__item-title">Deducciones</h2>
-        <p class="metas__item-valor"><span>432</span>.88 <span>$</span></p>
-        </div>
-
-        <div class="metas__item">
-        <h2 class="metas__item-title">Ahorro neto</h2>
-        <p class="metas__item-valor"><span>432</span>.88 <span>$</span></p>
-        </div>
-    </section>
 
     <section class="cuenta" id="cuenta">
-        <h2 class="cuenta__title">Número de cuenta</h2>
+        <h2 class="cuenta__title">Datos de la Cuenta</h2>
         <div class="cuenta__info">
-        <p class="info__label">Nombre de la cuenta:</p>
-        <p>#123456789</p>
-        <p class="info__label">Tipo:</p>
-        <p>Cuenta Corriente</p>
-        <p class="info__label">CI:</p>
-        <p>0954756323</p>
-        <p class="info__label">Email:</p>
-        <p>V7M6o@example.com</p>
+            <div><span class="info__label">Banco:</span> Banco Ejemplo</div>
+            <div><span class="info__label">Cuenta:</span> 1234567890</div>
+            <div><span class="info__label">Titular:</span> Nombre del Titular</div>
+            <div><span class="info__label">Tipo:</span> Ahorros</div>
         </div>
+        <button class="cuenta__cta">Copiar datos</button>
     </section>
 
     <footer class="footer" id="footer">
         <h3 class="footer__school">Colegio Javier</h3>
+        <div class="footer__divider"></div>
         <p class="footer__message">
         Dios y la Madre Dolorosa siga bendiciendo los hogares de cada uno de ustedes, que el Señor nos
         ilumine en unión y consolidación para continuar trabajando por el bienestar de nuestros hijos e hijas.
@@ -115,4 +88,6 @@
         <h3 class="footer__committee">Comité de Padres</h3>
     </footer>
 </body>
+<script src="JS/toggleDetails.js"></script>
+<script src="JS/code.js"></script>
 </html>
