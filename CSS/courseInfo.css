@@ -1,0 +1,80 @@
+/* ...otros imports... */
+
+/* Estilos para la sección curso-general */
+.curso-general {
+  background: var(--background-light, #fff);
+  border-radius: 22px;
+  box-shadow: 0 4px 18px rgba(128,8,41,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  border: 2.5px solid var(--main-color, #800829);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.curso-general__title {
+  color: var(--main-color, #800829);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(128,8,41,0.08);
+}
+
+.curso-general__resumen {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.curso-general__item {
+  background: var(--sec-color, #F4B32B);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(244,179,43,0.13);
+  padding: 1.2rem 2.2rem;
+  min-width: 150px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed var(--main-color, #800829);
+  transition: transform 0.15s;
+}
+
+.curso-general__item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 18px rgba(244,179,43,0.18);
+}
+
+.curso-general__item--recaudado h3 {
+  color: var(--main-color, #800829);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.curso-general__item--deuda h3 {
+  color: #b3001b;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.curso-general__item p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0 0 0;
+  color: var(--dark-color, #2D2D2D);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .curso-general__resumen {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .curso-general {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+}

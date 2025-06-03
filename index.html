@@ -27,18 +27,25 @@
         </ul>
     </nav>
 
-    <main class="main-info">
+    <div class="login" id="login-section">
+        <h2>Inicio de Sesión</h2>
+        <input type="text" id="cedula" placeholder="Cédula" class="login__input" />
+        <input type="password" id="pin" placeholder="PIN" class="login__input" />
+        <button class="login__btn" onclick="iniciarSesion()">Ingresar</button>
+        <div id="login-resultado" class="login__error"></div>
+    </div>
+
+    <main class="main-info" id="main-content" style="display:none;">
+        <section id="info" style="display:none;"></section>
         <section class="main-info__perfil">
             <h2 class="main-info__perfil-title">Estudiante:</h2>
             <p class="main-info__perfil-nombre">Álava Cartier Natalia Andrea</p>
-            <div class="main-info__perfil-paralelo">A</div>
+            <div class="main-info__perfil-paralelo" id="paralelo_estudiante">A</div>
         </section>
-
-        <!-- <section id="info" display="none"></section> -->
 
         <section class="resumen">
             <div class="resumen__item resumen__item--ahorro" onclick="toggleDetalle('detalle-ahorro')">
-                <h3>Ahorro Total</h3>
+                <h3>Aporte Total</h3>
                 <p>432.88 $</p>
             </div>
             
@@ -48,13 +55,13 @@
                 <p>85.00 $</p>
             </div>
 
-            <div id="detalle-ahorro" class="resumen__detalle hidden">
+            <div id="detalle-ahorro" class="modal resumen__detalle hidden">
                 <p>Olimpiadas: 25 $</p>
                 <p>Nivel: 60 $</p>
                 <p>Voluntario: 0 $</p>
             </div>
 
-            <div id="detalle-deuda" class="resumen__detalle hidden">
+            <div id="detalle-deuda" class="modal resumen__detalle hidden">
                 <p>Deuda Anterior: 0 $</p>
                 <p>1ro Bach:</p>
                 <ul>
@@ -64,19 +71,39 @@
                 </ul>
             </div>
         </section>
+
+
+        <div id="reporte"></div>
+        
+        <!-- NUEVA SECCIÓN DE INFORMACIÓN GENERAL DEL CURSO -->
+        <section class="curso-general">
+            <h2 class="curso-general__title">Información General del Curso</h2>
+            <div id="reporte"></div>
+            <div class="curso-general__resumen">
+                <div class="curso-general__item curso-general__item--recaudado">
+                    <h3>Recaudado Total</h3>
+                    <p id="curso-recaudado">$0.00</p>
+                </div>
+                <div class="curso-general__item curso-general__item--deuda">
+                    <h3>Deuda Total</h3>
+                    <p id="curso-deuda">$0.00</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cuenta" id="cuenta">
+            <h2 class="cuenta__title">Datos de la Cuenta</h2>
+            <div class="cuenta__info">
+                <div><span class="info__label">Banco:</span> Banco Ejemplo</div>
+                <div><span class="info__label">Cuenta:</span> 1234567890</div>
+                <div><span class="info__label">Titular:</span> Nombre del Titular</div>
+                <div><span class="info__label">Tipo:</span> Ahorros</div>
+            </div>
+            <button class="cuenta__cta">Copiar datos</button>
+        </section>
     </main> 
 
 
-    <section class="cuenta" id="cuenta">
-        <h2 class="cuenta__title">Datos de la Cuenta</h2>
-        <div class="cuenta__info">
-            <div><span class="info__label">Banco:</span> Banco Ejemplo</div>
-            <div><span class="info__label">Cuenta:</span> 1234567890</div>
-            <div><span class="info__label">Titular:</span> Nombre del Titular</div>
-            <div><span class="info__label">Tipo:</span> Ahorros</div>
-        </div>
-        <button class="cuenta__cta">Copiar datos</button>
-    </section>
 
     <footer class="footer" id="footer">
         <h3 class="footer__school">Colegio Javier</h3>
@@ -87,7 +114,12 @@
         </p>
         <h3 class="footer__committee">Comité de Padres</h3>
     </footer>
+
+    <script src="JS/getDataIndividual.js"></script>
+    <script src="JS/getDataParalelo.js"></script>
+    <script src="JS/toggleDetails.js"></script>
+    <script>
+        
+        </script>
 </body>
-<script src="JS/toggleDetails.js"></script>
-<script src="JS/code.js"></script>
 </html>
