@@ -18,10 +18,9 @@
             <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">&#9776;</button>
         </div>
         <ul class="nav__menu" id="navMenu">
-            <li class="nav__item"><a href="#perfil" class="nav__link">Perfil</a></li>
+            <li class="nav__item"><a href="#info" class="nav__link">Perfil</a></li>
             <li class="nav__item"><a href="#recaudado" class="nav__link">Recaudado</a></li>
-            <li class="nav__item"><a href="#deducciones" class="nav__link">Deducciones</a></li>
-            <li class="nav__item"><a href="#metas" class="nav__link">Metas</a></li>
+            <li class="nav__item"><a href="#curso" class="nav__link">Curso</a></li>
             <li class="nav__item"><a href="#cuenta" class="nav__link">Cuenta</a></li>
             <li class="nav__item"><a href="#footer" class="nav__link">Final</a></li>
         </ul>
@@ -37,72 +36,111 @@
 
     <main class="main-info" id="main-content" style="display:none;">
         <section id="info" style="display:none;"></section>
+
         <section class="main-info__perfil">
             <h2 class="main-info__perfil-title">Estudiante:</h2>
-            <p class="main-info__perfil-nombre">Álava Cartier Natalia Andrea</p>
-            <div class="main-info__perfil-paralelo" id="paralelo_estudiante">A</div>
+            <p class="main-info__perfil-nombre"></p>
+            <div class="main-info__perfil-paralelo" id="paralelo_estudiante"></div>
         </section>
 
-        <section class="resumen">
-            <div class="resumen__item resumen__item--ahorro" onclick="toggleDetalle('detalle-ahorro')">
-                <h3>Aporte Total</h3>
-                <p>432.88 $</p>
-            </div>
-            
-
-            <div class="resumen__item resumen__item--deuda" onclick="toggleDetalle('detalle-deuda')">
-                <h3>Deuda Total</h3>
-                <p>85.00 $</p>
-            </div>
-
-            <div id="detalle-ahorro" class="modal resumen__detalle hidden">
-                <p>Olimpiadas: 25 $</p>
-                <p>Nivel: 60 $</p>
-                <p>Voluntario: 0 $</p>
-            </div>
-
-            <div id="detalle-deuda" class="modal resumen__detalle hidden">
-                <p>Deuda Anterior: 0 $</p>
-                <p>1ro Bach:</p>
-                <ul>
-                <li>Olimpiadas: 25 $</li>
-                <li>Promo 67: 60 $</li>
-                <li>Graduación: 100 $</li>
-                </ul>
-            </div>
+        <!-- Section Recaudado -->
+        <section class="resumen" id="recaudado">
+        <div class="resumen__item resumen__item--ahorro" onclick="toggleDetalle('detalle-ahorro')">
+            <h3>Aporte Total</h3>
+            <p>$###</p>
+        </div>
+        <div class="resumen__item resumen__item--deuda" onclick="toggleDetalle('detalle-deuda')">
+            <h3>Deuda Total</h3>
+            <p>$###</p>
+        </div>
         </section>
 
 
-        <div id="reporte"></div>
-        
+
         <!-- NUEVA SECCIÓN DE INFORMACIÓN GENERAL DEL CURSO -->
-        <section class="curso-general">
-            <h2 class="curso-general__title">Información General del Curso</h2>
+        <section class="curso-general" id="curso">
+            <h2 class="curso-general__title">Información General</h2>
+            <h3 class="curso-general__sub">Curso: <span>A</span></h3>
             <div id="reporte"></div>
             <div class="curso-general__resumen">
                 <div class="curso-general__item curso-general__item--recaudado">
-                    <h3>Recaudado Total</h3>
-                    <p id="curso-recaudado">$0.00</p>
+                <h3>Recaudado Total</h3>
+                <p id="curso-recaudado">$0.00</p>
                 </div>
                 <div class="curso-general__item curso-general__item--deuda">
-                    <h3>Deuda Total</h3>
-                    <p id="curso-deuda">$0.00</p>
+                <h3>Deuda Total</h3>
+                <p id="curso-deuda">$0.00</p>
                 </div>
             </div>
         </section>
+
 
         <section class="cuenta" id="cuenta">
             <h2 class="cuenta__title">Datos de la Cuenta</h2>
+
             <div class="cuenta__info">
-                <div><span class="info__label">Banco:</span> Banco Ejemplo</div>
-                <div><span class="info__label">Cuenta:</span> 1234567890</div>
-                <div><span class="info__label">Titular:</span> Nombre del Titular</div>
-                <div><span class="info__label">Tipo:</span> Ahorros</div>
+                <div class="cuenta__row">
+                <span class="cuenta__icon">🏦</span>
+                <div class="cuenta__text">
+                    <span class="cuenta__label">Banco</span>
+                    <span class="cuenta__value">Banco Guayaquil</span>
+                </div>
+                </div>
+
+                <div class="cuenta__row">
+                <span class="cuenta__icon">#️⃣</span>
+                <div class="cuenta__text">
+                    <span class="cuenta__label">Cuenta</span>
+                    <span class="cuenta__value">2033924032</span>
+                </div>
+                </div>
+
+                <div class="cuenta__row">
+                <span class="cuenta__icon">👤</span>
+                <div class="cuenta__text">
+                    <span class="cuenta__label">Titular</span>
+                    <span class="cuenta__value">Nombre del Titular</span>
+                </div>
+                </div>
+
+                <div class="cuenta__row">
+                <span class="cuenta__icon">💳</span>
+                <div class="cuenta__text">
+                    <span class="cuenta__label">Tipo</span>
+                    <span class="cuenta__value">Ahorros</span>
+                </div>
+                </div>
             </div>
+
             <button class="cuenta__cta">Copiar datos</button>
         </section>
-    </main> 
 
+    </main> 
+    
+    <!-- Modal Ahorros -->
+    <div id="detalle-ahorro" class="modal hidden">
+    <div class="modal__content">
+        <h4>Detalle de Aportes</h4>
+        <p>Item A: <span>###$</span></p>
+        <button onclick="toggleDetalle('detalle-ahorro')">Cerrar</button>
+    </div>
+    </div>
+
+    <!-- Modal Deudas -->
+    <div id="detalle-deuda" class="modal hidden">
+    <div class="modal__content">
+        <h4>Detalle de Deudas</h4>
+        <div class="deuda-item">
+        <p>Deuda 1: <span>$50</span></p>
+        <input type="file" accept=".pdf,.jpg,.png" />
+        </div>
+        <div class="deuda-item">
+        <p>Deuda 2: <span>$75</span></p>
+        <input type="file" accept=".pdf,.jpg,.png" />
+        </div>
+        <button onclick="toggleDetalle('detalle-deuda')">Cerrar</button>
+    </div>
+    </div>
 
 
     <footer class="footer" id="footer">

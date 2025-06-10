@@ -1,80 +1,94 @@
-@import url('variables.css');
-
-/* Estilos para la sección curso-general */
 .curso-general {
-  background: var(--background-light, #fff);
-  border-radius: 22px;
-  box-shadow: 0 4px 18px rgba(128,8,41,0.10);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  margin-bottom: 2.5rem;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 1.8rem 1.2rem;
+  max-width: 480px;
+  margin: 2rem auto;
   text-align: center;
-  border: 2.5px solid var(--main-color, #800829);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .curso-general__title {
-  color: var(--main-color, #800829);
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1.2rem;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(128,8,41,0.08);
+  font-weight: 700;
+  color: #7A002C;
+  margin-bottom: 1rem;
+}
+
+.curso-general__sub {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
 .curso-general__resumen {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .curso-general__item {
-  background: var(--sec-color, #F4B32B);
+  background: #FAFAFA;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(244,179,43,0.13);
-  padding: 1.2rem 2.2rem;
-  min-width: 150px;
-  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px dashed var(--main-color, #800829);
-  transition: transform 0.15s;
+  transition: transform 0.15s ease;
 }
 
 .curso-general__item:hover {
-  transform: scale(1.04);
-  box-shadow: 0 4px 18px rgba(244,179,43,0.18);
+  transform: scale(1.02);
+}
+
+.curso-general__item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
 }
 
 .curso-general__item--recaudado h3 {
-  color: var(--main-color, #800829);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: #7A002C;
 }
+
 .curso-general__item--deuda h3 {
-  color: #b3001b;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: #B00020;
 }
 
 .curso-general__item p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin: 0.5rem 0 0 0;
-  color: var(--dark-color, #2D2D2D);
-  letter-spacing: 1px;
+  margin: 0;
+  color: #111;
 }
 
-@media (max-width: 600px) {
-  .curso-general__resumen {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+@media (min-width: 600px) {
   .curso-general {
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    padding: 2.5rem 2rem;
+    max-width: 600px;
+  }
+
+  .curso-general__title {
+    font-size: 2rem;
+  }
+
+  .curso-general__resumen {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .curso-general__item {
+    min-width: 220px;
+    padding: 1.2rem 2rem;
+  }
+
+  .curso-general__item p {
+    font-size: 1.6rem;
   }
 }
+  
