@@ -26,6 +26,8 @@ function iniciarSesion() {
             // Oculta login y muestra el contenido principal
             document.getElementById("login-section").style.display = "none";
             document.getElementById("main-content").style.display = "block";
+            document.getElementById("main-content").style.display = "block";
+            document.getElementById("nav-section").style.display = "block";
 
             // Actualiza los datos en la página
             document.querySelector('.main-info__perfil-nombre').textContent = `${data.Nombres} ${data.Apellidos}`;

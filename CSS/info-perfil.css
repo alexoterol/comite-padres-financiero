@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 .main-info__perfil {
   background: var(--background-light, #f5f7fa);
   border-radius: 12px;

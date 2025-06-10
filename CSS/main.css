@@ -1,11 +1,28 @@
 @import url('variables.css');
-@import url('styles.css');
-@import url('deducciones.css');
-@import url('resumen.css');
-@import url('nav.css');
-@import url('header.css');
-@import url('footer.css');
-@import url('info-perfil.css');
-@import url('cuenta.css');
-@import url('courseInfo.css');
-@import url('login.css');
+
+.main-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 100%;
+    font-family: var(--e-global-typography-primary-font-family, "Roboto");
+    font-weight: var(--e-global-typography-primary-font-weight, 600);
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    border: 5px solid var(--main-color, #800829);
+    background: #ccc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 768px) {
+    .main-info {
+        padding: 3rem;
+        font-size: 1.4rem;
+        max-width: 800px;
+    }
+}
