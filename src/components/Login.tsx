@@ -9,11 +9,11 @@ type Usuario = {
   Deuda: number;
 };
 
-type Props = {
+type Properties = {
   onLoginSuccess: (user: Usuario) => void;
 };
 
-const Login = ({ onLoginSuccess }: Props) => {
+const Login = ({ onLoginSuccess }: Properties) => {
   const [cedula, setCedula] = useState("");
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
