@@ -1,0 +1,74 @@
+@import url('variables.css');
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal__content {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal__content h4 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: var(--dark-color, #2D2D2D);
+  text-align: center;
+}
+
+.modal__content button {
+  margin-top: 1.5rem;
+  background-color: var(--main-color, #800829);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.modal__content button:hover {
+  background-color: var(--sec-color, #F4B32B);
+  color: var(--main-color, #800829);
+}
+
+.deuda-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.deuda-item input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid var(--sec-color, #F4B32B);
+  border-radius: 8px;
+  background-color: #f3f3f3;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -18,7 +18,11 @@ type Props = {
   usuario: Usuario;
 };
 
+
+
 const DashboardUsuario = ({ usuario }: Props) => {
+
+
   return (
     <div>
       <Nav />
@@ -34,12 +38,10 @@ const DashboardUsuario = ({ usuario }: Props) => {
           deuda={usuario.Deuda}
         />
 
+
         <CursoResumen paralelo={usuario.Paralelo} />
 
         <Cuenta />
-        <CursoResumen paralelo={usuario.Paralelo} />
-
-        {/* <Modales />  si decides activarlos más adelante */}
       </main>
     </div>
   );

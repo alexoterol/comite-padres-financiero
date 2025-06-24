@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ModalAhorro from "./ModalAhorro";
+import ModalDeuda from "./ModalDeuda";
 
 type Props = {
   saldo: number;
@@ -27,34 +29,24 @@ const Resumen = ({ saldo, deuda }: Props) => {
         <p>${deuda.toFixed(2)}</p>
       </div>
 
-      {/* Modal Ahorros */}
-      {mostrarAhorro && (
-        <div className="modal" onClick={() => setMostrarAhorro(false)}>
-          <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-            <h4>Detalle de Aportes</h4>
-            <p>Item A: <span>$###</span></p>
-            <button onClick={() => setMostrarAhorro(false)}>Cerrar</button>
-          </div>
-        </div>
-      )}
+      <ModalAhorro
+        isOpen={mostrarAhorro}
+        onClose={() => setMostrarAhorro(false)}
+        detalles={{
+          olimpíadas: 25,
+          nivel: 60,
+          voluntario: 0
+        }}
+      />
 
-      {/* Modal Deuda */}
-      {mostrarDeuda && (
-        <div className="modal" onClick={() => setMostrarDeuda(false)}>
-          <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-            <h4>Detalle de Deudas</h4>
-            <div className="deuda-item">
-              <p>Deuda 1: <span>$50</span></p>
-              <input type="file" accept=".pdf,.jpg,.png" />
-            </div>
-            <div className="deuda-item">
-              <p>Deuda 2: <span>$75</span></p>
-              <input type="file" accept=".pdf,.jpg,.png" />
-            </div>
-            <button onClick={() => setMostrarDeuda(false)}>Cerrar</button>
-          </div>
-        </div>
-      )}
+      <ModalDeuda
+        isOpen={mostrarDeuda}
+        onClose={() => setMostrarDeuda(false)}
+        deudas={[
+          { nombre: "Promo 67", valor: 60 },
+          { nombre: "Graduación", valor: 100 }
+        ]}
+      />
     </section>
   );
 };
