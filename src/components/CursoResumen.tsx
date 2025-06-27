@@ -19,8 +19,7 @@ const CursoResumen = ({ paralelo }: Props) => {
   useEffect(() => {
     if (!paralelo) return;
 
-    const url = `https://script.google.com/macros/s/TU_ID_SCRIPT/exec?paralelo=${encodeURIComponent(paralelo)}`;
-
+const url = `https://script.google.com/macros/s/AKfycbxEdcjbDW2N1IpMA2eLMYMJJi0kI-EUVzqayjYsC-yeOc3_QDOrPdxKibgQYu0fCYt-_w/exec?paralelo=${encodeURIComponent(paralelo)}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -28,13 +27,13 @@ const CursoResumen = ({ paralelo }: Props) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error al obtener resumen de curso:", err);
+        console.error("Error al obtener resumen del paralelo:", err);
         setResumen({
           paralelo,
           estudiantes: 0,
           totalSaldoFinal: 0,
           totalDeuda: 0,
-          error: "No se pudo obtener el resumen.",
+          error: "No se pudo obtener el resumen del curso.",
         });
         setLoading(false);
       });
@@ -45,11 +44,10 @@ const CursoResumen = ({ paralelo }: Props) => {
 
   return (
     <section className="curso-general" id="curso">
-      <h2 className="curso-general__title">Información General</h2>
+      <h2 className="curso-general__title">Información del Curso</h2>
       <h3 className="curso-general__sub">
         Curso: <span>{resumen?.paralelo}</span>
       </h3>
-      <div id="reporte"></div>
       <div className="curso-general__resumen">
         <div className="curso-general__item curso-general__item--recaudado">
           <h3>Recaudado Total</h3>
@@ -58,6 +56,10 @@ const CursoResumen = ({ paralelo }: Props) => {
         <div className="curso-general__item curso-general__item--deuda">
           <h3>Deuda Total</h3>
           <p id="curso-deuda">${resumen?.totalDeuda.toFixed(2)}</p>
+        </div>
+        <div className="curso-general__item curso-general__item--estudiantes">
+          <h3>Estudiantes</h3>
+          <p>{resumen?.estudiantes}</p>
         </div>
       </div>
     </section>
