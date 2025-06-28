@@ -20,7 +20,7 @@ const CursoResumen = ({ paralelo }: Props) => {
     console.warn("No se recibió paralelo");
     if (!paralelo) return;
 
-const url = `https://script.google.com/macros/s/AKfycbxEdcjbDW2N1IpMA2eLMYMJJi0kI-EUVzqayjYsC-yeOc3_QDOrPdxKibgQYu0fCYt-_w/exec?paralelo=${encodeURIComponent(paralelo)}`;
+const url = `https://script.google.com/macros/s/AKfycbxBXRyc4Zz5OYjw3aA8UrYRCspZqfiYcMhupCs-1kL56eBg7lC5YyyIHXsrEZuTDji0Kw/exec?paralelo=${encodeURIComponent(paralelo)}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
