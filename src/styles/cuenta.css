@@ -1,8 +1,9 @@
 .cuenta {
   background: #fff;
   border-radius: 20px;
-  padding: 2rem;
-  max-width: 500px;
+  padding: 2.2rem; /* un poco más de padding */
+  max-width: 65vw;  /* casi todo el ancho en mobile */
+  width: 100%;
   margin: 2rem auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   font-family: 'Segoe UI', sans-serif;
@@ -79,8 +80,8 @@
 
 @media (min-width: 768px) {
   .cuenta {
-    padding: 2.5rem;
-    max-width: 500px;
+    padding: 2.6rem;
+    max-width: 500px; /* más ancho en PC */
   }
 
   .cuenta__title {

@@ -17,12 +17,15 @@ const CursoResumen = ({ paralelo }: Props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.warn("No se recibió paralelo");
     if (!paralelo) return;
 
 const url = `https://script.google.com/macros/s/AKfycbxEdcjbDW2N1IpMA2eLMYMJJi0kI-EUVzqayjYsC-yeOc3_QDOrPdxKibgQYu0fCYt-_w/exec?paralelo=${encodeURIComponent(paralelo)}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        console.log("Prop paralelo:", paralelo);
+        console.log("API data:", data);
         setResumen(data);
         setLoading(false);
       })

@@ -7,6 +7,7 @@
   padding: 1.5rem;
   max-width: 520px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .resumen__item {
@@ -54,6 +55,7 @@
   .resumen__item {
     flex: 1 1 45%;
     padding: 1.5rem 2rem;
+    width: 7rem;
   }
 
   .resumen__item h3 {
