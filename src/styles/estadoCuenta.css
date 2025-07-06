@@ -1,0 +1,92 @@
+@import url('variables.css');
+
+.estado-cuenta {
+  background: #fff;
+  padding: 2.2rem 1.2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: var(--e-global-typography-primary-font-family, 'Roboto'), sans-serif;
+  color: var(--dark-color, #222);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(128, 8, 41, 0.07);
+  border: 1.5px solid var(--main-color, #800829);
+}
+
+.estado-cuenta__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--main-color, #800829);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.estado-cuenta__img{
+    width: 8rem;
+    height: auto;
+    border-radius: 8px;
+}
+
+.estado-cuenta__info p {
+  margin: 0.3rem 0;
+  color: var(--main-color, #800829);
+  font-weight: 500;
+}
+
+.estado-cuenta__mensaje,
+.estado-cuenta__mensaje-final,
+.estado-cuenta__nota {
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--link-color, #0A744C);
+  background: #f9f6f2;
+  border-left: 4px solid var(--sec-color, #F4B32B);
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+}
+
+.estado-cuenta__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(244, 179, 43, 0.06);
+}
+
+.estado-cuenta__tabla th {
+  background: var(--main-color, #800829);
+  color: var(--text-color, #fff);
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  border: none;
+}
+
+.estado-cuenta__tabla td {
+  border: 1px solid #e7e7e7;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  color: var(--dark-color, #2D2D2D);
+  background: #fff;
+}
+
+.estado-cuenta__total td {
+  font-weight: bold;
+  background: var(--sec-color, #F4B32B);
+  color: var(--main-color, #800829);
+  border-top: 2px solid var(--main-color, #800829);
+}
+
+@media (max-width: 600px) {
+  .estado-cuenta {
+    padding: 1.1rem 0.3rem;
+    max-width: 98vw;
+  }
+  .estado-cuenta__tabla th,
+  .estado-cuenta__tabla td {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.97rem;
+  }
+}

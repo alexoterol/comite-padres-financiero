@@ -1,8 +1,9 @@
 const Cuenta = () => {
   const datosCuenta = {
     banco: "Banco Guayaquil",
-    numero: "2033924032",
-    titular: "Nombre del Titular",
+    numero: "0046783829",
+    titular: "María Elena Romero Montoya",
+    cedula: "0909689994",
     tipo: "Ahorros",
   };
 
@@ -11,6 +12,7 @@ const Cuenta = () => {
 Banco: ${datosCuenta.banco}
 Cuenta: ${datosCuenta.numero}
 Titular: ${datosCuenta.titular}
+Cedula: ${datosCuenta.cedula}
 Tipo: ${datosCuenta.tipo}
     `;
     navigator.clipboard.writeText(texto).then(() => {
@@ -44,6 +46,14 @@ Tipo: ${datosCuenta.tipo}
           <div className="cuenta__text">
             <span className="cuenta__label">Titular</span>
             <span className="cuenta__value">{datosCuenta.titular}</span>
+          </div>
+        </div>
+
+        <div className="cuenta__row">
+          <span className="cuenta__icon">🪪</span>
+          <div className="cuenta__text">
+            <span className="cuenta__label">Número de Cédula</span>
+            <span className="cuenta__value">{datosCuenta.cedula}</span>
           </div>
         </div>
 

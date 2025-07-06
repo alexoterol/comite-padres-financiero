@@ -5,7 +5,7 @@
   border: 3px solid var(--main-color, #800829);
   border-radius: 28px;
   box-shadow: 0 8px 32px rgba(128,8,41,0.10), 0 1.5px 8px rgba(244,179,43,0.08);
-  max-width: 370px;
+  max-width: 400px;
   margin: 4rem auto 0 auto;
   padding: 2.5rem 2rem 2rem 2rem;
   display: flex;
@@ -43,13 +43,14 @@
   color: var(--background-light, #fff);
   border: none;
   border-radius: 20px;
-  padding: 0.7em 0;
+  padding: 0.7em 0.4rem;
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 1px;
   box-shadow: 0 2px 8px rgba(128,8,41,0.13);
   cursor: pointer;
   margin-top: 0.5rem;
+  margin-left: 1rem;
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 

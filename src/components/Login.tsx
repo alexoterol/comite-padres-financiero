@@ -50,14 +50,14 @@ const Login = ({ onLoginSuccess }: Properties) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Cédula"
+          placeholder="Usuario"
           value={cedula}
           onChange={(e) => setCedula(e.target.value)}
           className="login__input"
         />
         <input
           type="password"
-          placeholder="PIN"
+          placeholder="Contraseña"
           value={pin}
           onChange={(e) => setPin(e.target.value)}
           className="login__input"

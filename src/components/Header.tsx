@@ -4,11 +4,11 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <img
-        src="src/assets/img/SEO-Logo_Javier.png" 
+        src="src/assets/img/LOGOPROMO.png" 
         className="nav__logo"
-        alt="Logo Colegio Javier"
+        alt="Logo de Promoción 67"
       />
-      <h1 className="header__title">Recaudaciones Javier</h1>
+      <h1 className="header__title">Recaudaciones Promoción 67</h1>
     </header>
   );
 };
