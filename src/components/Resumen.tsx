@@ -3,8 +3,8 @@ import ModalAhorro from "./ModalAhorro";
 import ModalDeuda from "./ModalDeuda";
 
 type Props = {
-  saldo: number;
-  deuda: number;
+  saldo: string | number;
+  deuda: string | number;
 };
 
 const Resumen = ({ saldo, deuda }: Props) => {
@@ -18,7 +18,7 @@ const Resumen = ({ saldo, deuda }: Props) => {
         onClick={() => setMostrarAhorro(true)}
       >
         <h3>Aporte Total</h3>
-        <p>${saldo.toFixed(2)}</p>
+        <p>${saldo}</p>
       </div>
 
       <div
@@ -26,7 +26,7 @@ const Resumen = ({ saldo, deuda }: Props) => {
         onClick={() => setMostrarDeuda(true)}
       >
         <h3>Deuda Total</h3>
-        <p>${deuda.toFixed(2)}</p>
+        <p>${deuda}</p>
       </div>
 
       <ModalAhorro

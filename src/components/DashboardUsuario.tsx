@@ -1,28 +1,15 @@
 import Nav from "./Nav";
 import Perfil from "./Perfil";
-import Resumen from "./Resumen"; // lo crearemos luego
-import CursoResumen from "./CursoResumen"; // lo crearemos luego
-import Cuenta from "./Cuenta"; // lo crearemos luego
-import EstadoCuenta from "./EstadoCuenta"; // lo crearemos luego
-
-type Usuario = {
-  Cedula: string;
-  Nombres: string;
-  Apellidos: string;
-  Paralelo: string;
-  SaldoFinal: number;
-  Deuda: number;
-};
+import Resumen from "./Resumen"; 
+import Cuenta from "./Cuenta"; 
+import EstadoCuenta from "./EstadoCuenta"; 
+import type { Usuario } from "../types/Usuario";
 
 type Props = {
   usuario: Usuario;
 };
 
-
-
 const DashboardUsuario = ({ usuario }: Props) => {
-
-
   return (
     <div>
       <Nav />
@@ -34,8 +21,8 @@ const DashboardUsuario = ({ usuario }: Props) => {
         />
 
         <Resumen
-          saldo={usuario.SaldoFinal}
-          deuda={usuario.Deuda}
+          saldo={usuario.SaldoFinal20252026}
+          deuda={usuario.SaldoFinal20252026}
         />
 
         <EstadoCuenta
@@ -58,9 +45,6 @@ const DashboardUsuario = ({ usuario }: Props) => {
           ]}
           totalAhorros="$27.80"
         />
-
-
-        <CursoResumen paralelo={usuario.Paralelo} />
 
         <Cuenta />
       </main>

@@ -1,10 +1,4 @@
-import { useState } from "react";
-import Login from "./components/Login";
-import DashboardUsuario from "./components/DashboardUsuario";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-
-type Usuario = {
+export type Usuario = {
   Usuario: string;
   Contraseña: string;
   Apellidos: string;
@@ -40,22 +34,3 @@ type Usuario = {
   SaldoFinal20252026: string;
 };
 
-function App() {
-  const [usuario, setUsuario] = useState<Usuario | null>(null);
-
-  return (
-    <>
-      <Header /> {/* Siempre visible */}
-
-      {!usuario ? (
-        <Login onLoginSuccess={setUsuario} />
-      ) : (
-        <DashboardUsuario usuario={usuario} />
-      )}
-
-      <Footer />
-    </>
-  );
-}
-
-export default App;
