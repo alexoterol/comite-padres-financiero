@@ -1,60 +1,73 @@
 import React from 'react';
 import type { Usuario } from '../types/Usuario';
 
-type Cuota = {
-  periodo: string;
-  cuota: string;
-  cancelado: string;
-  pendiente: string;
-};
+const EstadoCuenta = ({ usuario }: { usuario: Usuario }) => {
+  const estudiante = `${usuario.Nombres} ${usuario.Apellidos}`;
+  const familia = usuario.Apellidos;
+  const fecha = new Date().toLocaleDateString('es-EC');
 
-type Ahorro = {
-  periodo: string;
-  concepto: string;
-  valor: string;
-};
+  const cuotas = [
+    {
+      periodo: '2022-2023',
+      cuota: '$200',
+      cancelado: usuario.SaldoFinal20222023,
+      pendiente: usuario.Dev9no || '$0.00',
+    },
+    {
+      periodo: '2023-2024',
+      cuota: '$250',
+      cancelado: usuario.SaldoFinal20232024,
+      pendiente: usuario.Dev10mo || '$0.00',
+    },
+    {
+      periodo: '2024-2025',
+      cuota: '$300',
+      cancelado: usuario.SaldoFinal20242025,
+      pendiente: usuario.UsoSaldoFavor || '$0.00',
+    },
+    {
+      periodo: '2025-2026',
+      cuota: '$350',
+      cancelado: usuario.SaldoFinal20252026,
+      pendiente: '$0.00',
+    },
+  ];
 
-type Props = {
-  usuario: Usuario;
-  estudiante: string; // Nombre completo del representado
-  familia: string;    // Apellidos de la familia
-  fecha: string;
-  cuotas: Cuota[];
-  ahorros: Ahorro[];
-  totalAhorros: string;
-};
+  const ahorros = [
+    { periodo: 'Octavo', concepto: 'Ahorro', valor: usuario.Ahorro8vo },
+    { periodo: 'Octavo', concepto: 'Pulguero', valor: usuario.Pulguero8vo },
+    { periodo: 'Noveno', concepto: 'Ahorro', valor: usuario.Ahorro9no },
+    { periodo: 'Noveno', concepto: 'Pulguero', valor: usuario.Pulguero9no },
+    { periodo: 'Décimo', concepto: 'Ahorro', valor: usuario.Ahorro10mo },
+    { periodo: 'Décimo', concepto: 'Pulguero', valor: usuario.Pulguero10mo },
+    { periodo: '1ro Bach.', concepto: 'Ahorro', valor: usuario.Ahorro1roBach },
+    { periodo: '1ro Bach.', concepto: 'Pulguero', valor: usuario.Pulguero1roBach },
+    { periodo: 'Otros', concepto: 'Intereses ganados', valor: usuario.IntGanados },
+  ];
 
-const EstadoCuenta = ({
-  usuario,
-  estudiante,
-  familia,
-  fecha,
-  cuotas,
-  ahorros,
-  totalAhorros
-}: Props) => {
+  const totalAhorros = ahorros.reduce((acc, a) => {
+    const num = parseFloat((a.valor || '0').replace(/[^\d.-]/g, '')) || 0;
+    return acc + num;
+  }, 0).toFixed(2);
+
   return (
     <section className="estado-cuenta">
-      {/* Encabezado institucional con logos */}
       <header className="estado-cuenta__header">
         <img className="estado-cuenta__img" src="/img/SEO-Logo_Javier.png" alt="Logo Javier" />
         <h2>ESTADO DE CUENTA<br />2024-2025</h2>
         <img className="estado-cuenta__img" src="/img/LOGOPROMO.png" alt="Logo Comité" />
       </header>
 
-      {/* Datos generales del destinatario */}
       <div className="estado-cuenta__info">
         <p><strong>DE:</strong> Comité de Padres de Familia (C.P.F.)</p>
         <p><strong>PARA:</strong> Familia {familia}</p>
         <p><strong>FECHA:</strong> {fecha}</p>
       </div>
 
-      {/* Mensaje de bienvenida */}
       <p className="estado-cuenta__mensaje">
         Es un gusto saludarlos y desearles bienestar para ustedes y sus familias. A continuación, sírvase encontrar el estado de cuenta de las cuotas anuales y saldos de su representado: <strong>{estudiante}</strong>.
       </p>
 
-      {/* Tabla de cuotas anuales */}
       <h3>Cuota Anual</h3>
       <table className="estado-cuenta__tabla">
         <thead>
@@ -77,7 +90,6 @@ const EstadoCuenta = ({
         </tbody>
       </table>
 
-      {/* Tabla de ahorros personales */}
       <h3>Ahorro personal</h3>
       <table className="estado-cuenta__tabla">
         <thead>
@@ -88,22 +100,20 @@ const EstadoCuenta = ({
           </tr>
         </thead>
         <tbody>
-          {ahorros.map((ahorro, i) => (
+          {ahorros.map((a, i) => (
             <tr key={i}>
-              <td>{ahorro.periodo}</td>
-              <td>{ahorro.concepto}</td>
-              <td>{ahorro.valor}</td>
+              <td>{a.periodo}</td>
+              <td>{a.concepto}</td>
+              <td>{a.valor}</td>
             </tr>
           ))}
-          {/* Total al final */}
           <tr className="estado-cuenta__total">
             <td colSpan={2}>Total</td>
-            <td>{totalAhorros}</td>
+            <td>${totalAhorros}</td>
           </tr>
         </tbody>
       </table>
 
-      {/* Nota legal */}
       <p className="estado-cuenta__nota">
         (*) Estos valores serán devueltos sin intereses, en caso de que su representado se retire del colegio antes de Tercero de Bachillerato.
       </p>
