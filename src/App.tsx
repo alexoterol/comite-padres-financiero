@@ -3,59 +3,26 @@ import Login from "./components/Login";
 import DashboardUsuario from "./components/DashboardUsuario";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import type { Usuario } from "./types/Usuario"; // ✅ Mejor extraer el tipo a un archivo compartido
 
-type Usuario = {
-  Usuario: string;
-  Contraseña: string;
-  Apellidos: string;
-  Nombres: string;
-  Paralelo: string;
-  Ahorro8vo: string;
-  Pulguero8vo: string;
-  NoPiezas: number | string;
-  Valor: number | string;
-  SaldoPrimeraComunion7mo: string;
-  SaldoFinal20222023: string;
-  Dev9no: string;
-  SaldoNetoFinal20222023: string;
-  Ahorro9no: string;
-  IntGanados20222023: string;
-  Pulguero9no: string;
-  SaldoFinal20232024: string;
-  Dev10mo: string;
-  InteresFondoComun: string;
-  SaldoNetoFinal20232024: string;
-  Ahorro10mo: string;
-  IntGanados20232024: string;
-  VentaComida10mo: string;
-  Pulguero10mo: string;
-  IntGanadosEne2025: string;
-  SaldoFinal20242025: string;
-  Ahorro1roBach: string;
-  UsoSaldoFavor: string;
-  IntGanados20242025: string;
-  Pulguero1roBach: string;
-  OtrosIngresos: string;
-  IntGanados: string;
-  SaldoFinal20252026: string;
-};
-
-function App() {
+const App = () => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
 
   return (
     <>
-      <Header /> {/* Siempre visible */}
+      <Header />
 
-      {!usuario ? (
-        <Login onLoginSuccess={setUsuario} />
-      ) : (
-        <DashboardUsuario usuario={usuario} />
-      )}
+      <main>
+        {!usuario ? (
+          <Login onLoginSuccess={setUsuario} />
+        ) : (
+          <DashboardUsuario usuario={usuario} />
+        )}
+      </main>
 
       <Footer />
     </>
   );
-}
+};
 
 export default App;

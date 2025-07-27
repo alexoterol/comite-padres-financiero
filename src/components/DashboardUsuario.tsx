@@ -15,19 +15,11 @@ const DashboardUsuario = ({ usuario }: Props) => {
       <Nav />
 
       <main className="main-info" id="main-content">
-        <Perfil
-          nombre={`${usuario.Nombres} ${usuario.Apellidos}`}
-          paralelo={usuario.Paralelo}
-        />
+        <Perfil usuario={usuario} />
 
-        <Resumen
-          saldo={usuario.SaldoFinal20252026}
-          deuda={usuario.SaldoFinal20252026}
-        />
+        <Resumen usuario={usuario} />
 
-        <EstadoCuenta
-          usuario={usuario}
-        />
+        <EstadoCuenta usuario={usuario} />
 
         <Cuenta />
       </main>

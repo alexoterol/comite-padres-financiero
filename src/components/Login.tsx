@@ -31,10 +31,13 @@ const Login = ({ onLoginSuccess }: Properties) => {
       } else {
         onLoginSuccess(data as Usuario);
       }
+      
     } catch {
       setError("Error al conectar con el servidor.");
     }
   };
+
+  
 
   return (
     <div className="login" id="login-section">
