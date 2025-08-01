@@ -3,32 +3,26 @@ import Login from "./components/Login";
 import DashboardUsuario from "./components/DashboardUsuario";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import type { Usuario } from "./types/Usuario"; // ✅ Mejor extraer el tipo a un archivo compartido
 
-type Usuario = {
-  Cedula: string;
-  Nombres: string;
-  Apellidos: string;
-  Paralelo: string;
-  SaldoFinal: number;
-  Deuda: number;
-};
-
-function App() {
+const App = () => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
 
   return (
     <>
-      <Header /> {/* Siempre visible */}
+      <Header />
 
-      {!usuario ? (
-        <Login onLoginSuccess={setUsuario} />
-      ) : (
-        <DashboardUsuario usuario={usuario} />
-      )}
+      <main>
+        {!usuario ? (
+          <Login onLoginSuccess={setUsuario} />
+        ) : (
+          <DashboardUsuario usuario={usuario} />
+        )}
+      </main>
 
       <Footer />
     </>
   );
-}
+};
 
 export default App;

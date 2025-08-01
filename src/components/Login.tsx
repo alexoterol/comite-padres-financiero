@@ -1,20 +1,12 @@
 import { useState } from "react";
-
-type Usuario = {
-  Cedula: string;
-  Nombres: string;
-  Apellidos: string;
-  Paralelo: string;
-  SaldoFinal: number;
-  Deuda: number;
-};
+import type { Usuario } from '../types/Usuario';
 
 type Properties = {
   onLoginSuccess: (user: Usuario) => void;
 };
 
 const Login = ({ onLoginSuccess }: Properties) => {
-  const [cedula, setCedula] = useState("");
+  const [usuario, setUsuario] = useState("");
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
 
@@ -22,12 +14,12 @@ const Login = ({ onLoginSuccess }: Properties) => {
     e.preventDefault();
     setError("");
 
-    if (!cedula || !pin) {
+    if (!usuario || !pin) {
       setError("Por favor, ingresa tu cédula y PIN.");
       return;
     }
 
-    const url = `https://script.google.com/macros/s/AKfycbz1NFlruXf3drBc6qiLvks_FXuYro7PAA0rq2_G_fRpVOH8C1xBWbkBe8NDYPJud-krXg/exec?cedula=${encodeURIComponent(cedula)}&pin=${encodeURIComponent(pin)}`;
+    const url = `https://script.google.com/macros/s/AKfycbzckFUCEhkqn2yFsXE40s_M_ZXpSugI5RBQu60pXsWL2MwqU-AFUj0EHE75SFOOYI4B/exec?usuario=${encodeURIComponent(usuario)}&pin=${encodeURIComponent(pin)}`;
 
 
     try {
@@ -39,10 +31,13 @@ const Login = ({ onLoginSuccess }: Properties) => {
       } else {
         onLoginSuccess(data as Usuario);
       }
+      
     } catch {
       setError("Error al conectar con el servidor.");
     }
   };
+
+  
 
   return (
     <div className="login" id="login-section">
@@ -51,8 +46,8 @@ const Login = ({ onLoginSuccess }: Properties) => {
         <input
           type="text"
           placeholder="Usuario"
-          value={cedula}
-          onChange={(e) => setCedula(e.target.value)}
+          value={usuario}
+          onChange={(e) => setUsuario(e.target.value)}
           className="login__input"
         />
         <input

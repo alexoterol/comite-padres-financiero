@@ -1,9 +1,7 @@
 import Modal from "./Modal";
 
 type DetallesAhorro = {
-  olimpíadas: number;
-  nivel: number;
-  voluntario: number;
+  [periodo: string]: string | number; // Ej: { "8vo Básico": "$90.00", ... }
 };
 
 type Props = {
@@ -15,10 +13,14 @@ type Props = {
 const ModalAhorro = ({ isOpen, onClose, detalles }: Props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <h4>Detalle de Aportes</h4>
-      <p>Olimpíadas: ${detalles.olimpíadas.toFixed(2)}</p>
-      <p>Nivel: ${detalles.nivel.toFixed(2)}</p>
-      <p>Voluntario: ${detalles.voluntario.toFixed(2)}</p>
+      <h4>Detalle de Ahorros por Nivel</h4>
+      <ul>
+        {Object.entries(detalles).map(([periodo, valor], i) => (
+          <li key={i}>
+            {periodo}: ${typeof valor === "string" ? valor : valor.toFixed(2)}
+          </li>
+        ))}
+      </ul>
     </Modal>
   );
 };
