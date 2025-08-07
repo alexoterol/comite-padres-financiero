@@ -8,6 +8,7 @@ const EstadoCuenta = ({ usuario }: { usuario: Usuario }) => {
   // 🔧 Función reutilizable para formatear valores monetarios
   const formatMonto = (valor: string | number | undefined | null): string => {
     if (valor === undefined || valor === null || valor === "") return "-";
+    if (typeof valor === "number" && valor < 0) return "$0.00";
     const num = typeof valor === "number" ? valor : parseFloat(valor.toString().replace(/[^\d.-]/g, ''));
     return isNaN(num) ? "-" : `$${num.toFixed(2)}`;
   };
@@ -16,40 +17,40 @@ const EstadoCuenta = ({ usuario }: { usuario: Usuario }) => {
   const cuotas = [
     {
       periodo: '2022-2023',
-      cuota: '$200.00',
-      cancelado: formatMonto(usuario.Saldofinal20222023),
-      pendiente: formatMonto(usuario.DevAlumnosquedejaronelcolegioen9no),
+      cuota: '$60.00',
+      cancelado: formatMonto(usuario.Ahorro8vo),
+      pendiente: formatMonto(90 - usuario.Ahorro8vo ),
     },
     {
       periodo: '2023-2024',
-      cuota: '$250.00',
-      cancelado: formatMonto(usuario.SaldoFinal20232024),
-      pendiente: formatMonto(usuario.DevAlumnosquedejaránelcolegioen10mo),
+      cuota: '$60.00',
+      cancelado: formatMonto(usuario.Ahorro9no),
+      pendiente: formatMonto(100 - usuario.Ahorro9no),
     },
     {
       periodo: '2024-2025',
-      cuota: '$300.00',
-      cancelado: formatMonto(usuario.SaldoFinal20242025),
-      pendiente: formatMonto(usuario.UsodelSaldoafavordel20242025),
+      cuota: '$60.00',
+      cancelado: formatMonto(usuario.Ahorro10mo),
+      pendiente: formatMonto(100 - usuario.Ahorro10mo),
     },
     {
       periodo: '2025-2026',
-      cuota: '$350.00',
-      cancelado: formatMonto(usuario.SaldoFinal20252026),
-      pendiente: "$0.00",
+      cuota: '$60.00',
+      cancelado: formatMonto(usuario.Ahorro1roBach),
+      pendiente: formatMonto(100 - usuario.Ahorro1roBach),
     },
   ];
 
   // 🏦 Ahorros por periodo y concepto
   const ahorros = [
-    { periodo: 'Octavo', concepto: 'Ahorro', valor: usuario.Ahorro8vo },
-    { periodo: 'Octavo', concepto: 'Pulguero', valor: usuario.Pulguero8voValor },
-    { periodo: 'Noveno', concepto: 'Ahorro', valor: usuario.Ahorro9no },
-    { periodo: 'Noveno', concepto: 'Pulguero', valor: usuario.Pulguero9no },
-    { periodo: 'Décimo', concepto: 'Ahorro', valor: usuario.Ahorro10mo },
-    { periodo: 'Décimo', concepto: 'Pulguero', valor: usuario.Pulguero10mo },
-    { periodo: '1ro Bach.', concepto: 'Ahorro', valor: usuario.Ahorro1roBach },
-    { periodo: '1ro Bach.', concepto: 'Pulguero', valor: usuario.Pulguero1roBach },
+    { periodo: 'Octavo', concepto: 'Ahorro (*)', valor: usuario.Ahorro8vo },
+    { periodo: 'Noveno', concepto: 'Ahorro (*)', valor: usuario.Ahorro9no },
+    { periodo: 'Décimo', concepto: 'Ahorro (*)', valor: usuario.Ahorro10mo },
+    { periodo: '1ro Bach.', concepto: 'Ahorro (*)', valor: usuario.Ahorro1roBach },
+    { periodo: 'Octavo', concepto: 'Pulguero (*)', valor: usuario.Pulguero8voValor },
+    { periodo: 'Noveno', concepto: 'Pulguero (*)', valor: usuario.Pulguero9no },
+    { periodo: 'Décimo', concepto: 'Pulguero (*)', valor: usuario.Pulguero10mo },
+    { periodo: '1ro Bach.', concepto: 'Pulguero (*)', valor: usuario.Pulguero1roBach },
     { periodo: 'Otros', concepto: 'Intereses ganados', valor: usuario.IntGanAhorros20222023 },
   ];
 
@@ -59,7 +60,7 @@ const EstadoCuenta = ({ usuario }: { usuario: Usuario }) => {
   }, 0).toFixed(2);
 
   return (
-    <section className="estado-cuenta">
+    <section className="estado-cuenta" id='estado-cuenta'>
       <header className="estado-cuenta__header">
         <img className="estado-cuenta__img" src="/img/SEO-Logo_Javier.png" alt="Logo Javier" />
         <h2>ESTADO DE CUENTA<br />2024-2025</h2>

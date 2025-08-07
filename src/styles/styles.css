@@ -13,7 +13,6 @@ body {
 }
 
 section, main, aside {
-    padding: 1rem;
     margin-bottom: 2rem;
     background: var(--section-bg, transparent);
 }
