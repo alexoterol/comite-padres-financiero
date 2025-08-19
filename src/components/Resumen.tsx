@@ -1,11 +1,9 @@
 import { useState } from "react";
 import ModalAhorro from "./ModalAhorro";
-import ModalDeuda from "./ModalDeuda";
 import type { Usuario } from "../types/Usuario";
 
 const Resumen = ({ usuario }: { usuario: Usuario }) => {
   const [mostrarAhorro, setMostrarAhorro] = useState(false);
-  const [mostrarDeuda, setMostrarDeuda] = useState(false);
 
   // Utilidad para formatear montos
   const formatMonto = (valor: string | number | undefined) => {
@@ -32,14 +30,6 @@ const Resumen = ({ usuario }: { usuario: Usuario }) => {
       (parseFloat((usuario.Pulguero1roBach ?? "0").toString()) || 0),
   };
 
-  // Simulación de deudas (puedes extraerlas dinámicamente si están en los datos)
-  const detallesDeuda = [
-    { nombre: "Promo 67", valor: 60 },
-    { nombre: "Graduación", valor: 100 },
-  ];
-
-  const deuda = detallesDeuda.reduce((acc, d) => acc + d.valor, 0);
-
   return (
     <section className="resumen" id="recaudado">
       <div
@@ -50,24 +40,10 @@ const Resumen = ({ usuario }: { usuario: Usuario }) => {
         <p>{formatMonto(saldo)}</p>
       </div>
 
-      <div
-        className="resumen__item resumen__item--deuda"
-        onClick={() => setMostrarDeuda(true)}
-      >
-        <h3>Deuda Total</h3>
-        <p>{formatMonto(deuda)}</p>
-      </div>
-
       <ModalAhorro
         isOpen={mostrarAhorro}
         onClose={() => setMostrarAhorro(false)}
         detalles={detallesAhorro}
-      />
-
-      <ModalDeuda
-        isOpen={mostrarDeuda}
-        onClose={() => setMostrarDeuda(false)}
-        deudas={detallesDeuda}
       />
     </section>
   );

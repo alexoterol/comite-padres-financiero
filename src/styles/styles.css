@@ -10,6 +10,8 @@ body {
     font-family: var(--font-family, sans-serif);
     color: var(--dark-color, #222);
     scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
 }
 
 section, main, aside {

@@ -4,8 +4,6 @@
   background: var(--main-color, #1a73e8);
   color: var(--background-light, #fff);
   padding: 3rem 1.5rem 2rem 1.5rem;
-  border-top-left-radius: 48px;
-  border-top-right-radius: 48px;
   box-shadow: 0 -8px 32px rgba(0,0,0,0.13);
   text-align: center;
   margin-top: 3rem;
